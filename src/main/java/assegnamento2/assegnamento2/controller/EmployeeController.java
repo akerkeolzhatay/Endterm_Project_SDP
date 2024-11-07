@@ -1,6 +1,7 @@
 package assegnamento2.assegnamento2.controller;
 
-import assegnamento2.assegnamento2.communication.product.ElettronicDevice;
+import assegnamento2.assegnamento2.communication.product.BakeryShop;
+import assegnamento2.assegnamento2.communication.product.BakeryShop;
 import assegnamento2.assegnamento2.communication.user.Client;
 import assegnamento2.assegnamento2.communication.user.Employee;
 import javafx.fxml.FXML;
@@ -54,9 +55,9 @@ public class EmployeeController extends Controller implements Initializable {
     @FXML
     protected Button uploadButtonE;
 
-    List<ElettronicDevice> prodElDev = new ArrayList<>();
+    List<BakeryShop> prodElDev = new ArrayList<>();
 
-    List<ElettronicDevice> buyElDev = new ArrayList<>();
+    List<BakeryShop> buyElDev = new ArrayList<>();
 
     List<Client> clientList = new ArrayList<>();
 
@@ -126,7 +127,7 @@ public class EmployeeController extends Controller implements Initializable {
                         String price = el_d.getElementsByTagName("price").item(0).getChildNodes().item(0).getNodeValue();
                         String amount = el_d.getElementsByTagName("amount").item(0).getChildNodes().item(0).getNodeValue();
 
-                        client.addOrder(new ElettronicDevice(name, Integer.parseInt(id), producer, Float.parseFloat(price), Integer.parseInt(amount)));
+                        client.addOrder(new BakeryShop(name, Integer.parseInt(id), producer, Float.parseFloat(price), Integer.parseInt(amount)));
                     }
                 }
             }
@@ -168,7 +169,7 @@ public class EmployeeController extends Controller implements Initializable {
             writer.writeStartElement("order");
             writer.writeAttribute("id", cli.getUsername());
 
-            for (ElettronicDevice e : (List<ElettronicDevice>) cli.getShop()) {
+            for (BakeryShop e : (List<BakeryShop>) cli.getShop()) {
 
                 writer.writeStartElement("elDev");
 

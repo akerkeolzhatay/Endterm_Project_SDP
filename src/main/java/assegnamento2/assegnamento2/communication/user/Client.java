@@ -1,7 +1,7 @@
 package assegnamento2.assegnamento2.communication.user;
 
 import assegnamento2.assegnamento2.communication.product.BakeryShop;
-import assegnamento2.assegnamento2.communication.product.ElettronicDevice;
+import assegnamento2.assegnamento2.communication.product.BakeryShop;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 public final class Client extends Person {
 
     private String address;
-    private final List<ElettronicDevice> shop = new ArrayList<>();
+    private final List<BakeryShop> shop = new ArrayList<>();
 
     public Client() { }
 
@@ -57,7 +57,7 @@ public final class Client extends Person {
             }
         }
 
-        for (ElettronicDevice e : list) {
+        for (BakeryShop e : list) {
             if (name.equalsIgnoreCase(e.getName()) || (name.equals(""))) {
                 elprint.add(e);
                 if ((!producer.equalsIgnoreCase(e.getProducer())) && (!(producer.equals("")))) {
@@ -75,25 +75,25 @@ public final class Client extends Person {
         return elprint;
     }
 
-    public int orderProduct(final List<ElettronicDevice> elDev, final List<ElettronicDevice> buyElDev, String ID, String amount) {
+    public int orderProduct(final List<BakeryShop> elDev, final List<BakeryShop> buyElDev, String ID, String amount) {
         int id = 0;
         try {
             id = Integer.parseInt(ID);
 
         } catch (NumberFormatException ignored) {
         }
-        for (ElettronicDevice i : elDev) {
+        for (BakeryShop i : elDev) {
             if (i.getId() == id) {
                 int qnt = Integer.parseInt(amount);
                 if ((qnt > 0) && (qnt <= i.getAmount())) {
                     if (i.getAmount() == qnt) {
-                        addOrder(new ElettronicDevice(i));
+                        addOrder(new BakeryShop(i));
                         i.setAmount(i.getAmount() - qnt);
                         buyElDev.add(elDev.remove(elDev.indexOf(i)));
                     } else {
                         int a = i.getAmount();
                         i.setAmount(qnt);
-                        addOrder(new ElettronicDevice(i));
+                        addOrder(new BakeryShop(i));
                         i.setAmount(a - qnt);
                     }
                     return 0;
@@ -102,8 +102,8 @@ public final class Client extends Person {
         }
         return 2;
     }
-    public void addOrder(final ElettronicDevice e) {
-        for (ElettronicDevice i : this.shop) {
+    public void addOrder(final BakeryShop e) {
+        for (BakeryShop i : this.shop) {
             if (i.getId() == e.getId()) {
                 i.setAmount(i.getAmount() + e.getAmount());
                 return;

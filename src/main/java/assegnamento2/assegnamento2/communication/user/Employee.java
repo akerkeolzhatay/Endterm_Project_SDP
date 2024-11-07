@@ -1,5 +1,6 @@
 package assegnamento2.assegnamento2.communication.user;
 
+import assegnamento2.assegnamento2.communication.product.BakeryShop;
 import assegnamento2.assegnamento2.communication.product.ElettronicDevice;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class Employee extends Person {
         super(emp.getName(), emp.getSurname(), emp.getUsername(), emp.getPassword());
     }
 
-    public int addAmount(final List<ElettronicDevice> elDev, final List<ElettronicDevice> buyElDev, String ID, String amount) {
+    public int addAmount(final List<BakeryShop> elDev, final List<BakeryShop> buyElDev, String ID, String amount) {
         int id;
         try {
             id = Integer.parseInt(ID);
@@ -23,7 +24,7 @@ public class Employee extends Person {
         } catch (NumberFormatException e) {
             return 2;
         }
-        for (ElettronicDevice i : elDev) {
+        for (BakeryShop i : elDev) {
             if (i.getId() == id) {
                 int q;
                 try {
@@ -37,7 +38,7 @@ public class Employee extends Person {
                 }
             }
         }
-        for (ElettronicDevice j : buyElDev) {
+        for (BakeryShop j : buyElDev) {
             if (j.getId() == id) {
                 int q;
                 try {

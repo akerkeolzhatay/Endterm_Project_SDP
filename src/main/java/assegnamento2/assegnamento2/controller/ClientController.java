@@ -1,6 +1,7 @@
 package assegnamento2.assegnamento2.controller;
 
-import assegnamento2.assegnamento2.communication.product.ElettronicDevice;
+import assegnamento2.assegnamento2.communication.product.BakeryShop;
+import assegnamento2.assegnamento2.communication.product.BakeryShop;
 import assegnamento2.assegnamento2.communication.user.Client;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -53,8 +54,8 @@ public final class ClientController extends Controller implements Initializable 
 
     private Client client = new Client();
 
-    List<ElettronicDevice> prodElDev = new ArrayList<>();
-    List<ElettronicDevice> buyElDev = new ArrayList<>();
+    List<BakeryShop> prodElDev = new ArrayList<>();
+    List<BakeryShop> buyElDev = new ArrayList<>();
     public void setClient(Client cli) throws ParserConfigurationException, IOException, SAXException {
 
         this.client = new Client(cli);
@@ -76,10 +77,10 @@ public final class ClientController extends Controller implements Initializable 
     @FXML
     public void handleSearch() {
 
-        List<ElettronicDevice> support = null;
+        List<BakeryShop> support = null;
 
         try {
-            support = (List<ElettronicDevice>) client.searchProduct(prodElDev, this.productNamec.getText(), this.productProducerc.getText(), this.minimumPrice.getText(), this.maximumPrice.getText());
+            support = (List<BakeryShop>) client.searchProduct(prodElDev, this.productNamec.getText(), this.productProducerc.getText(), this.minimumPrice.getText(), this.maximumPrice.getText());
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -147,7 +148,7 @@ public final class ClientController extends Controller implements Initializable 
                             String price = el_d.getElementsByTagName("price").item(0).getChildNodes().item(0).getNodeValue();
                             String amount = el_d.getElementsByTagName("amount").item(0).getChildNodes().item(0).getNodeValue();
 
-                            client.addOrder(new ElettronicDevice(name, Integer.parseInt(id), producer, Float.parseFloat(price), Integer.parseInt(amount)));
+                            client.addOrder(new BakeryShop(name, Integer.parseInt(id), producer, Float.parseFloat(price), Integer.parseInt(amount)));
                         }
                     }
                 }
@@ -178,7 +179,7 @@ public final class ClientController extends Controller implements Initializable 
 
             if (attribute.equals(client.getUsername())) {
 
-                for (ElettronicDevice e : (List<ElettronicDevice>) client.getShop()) {
+                for (BakeryShop e : (List<BakeryShop>) client.getShop()) {
 
                     writer.writeStartElement("elDev");
 
@@ -228,7 +229,7 @@ public final class ClientController extends Controller implements Initializable 
             writer.writeStartElement("order");
             writer.writeAttribute("id", client.getUsername());
 
-            for (ElettronicDevice e : (List<ElettronicDevice>) client.getShop()) {
+            for (BakeryShop e : (List<BakeryShop>) client.getShop()) {
 
                 writer.writeStartElement("elDev");
 

@@ -1,6 +1,7 @@
 package assegnamento2.assegnamento2.controller;
 
-import assegnamento2.assegnamento2.communication.product.ElettronicDevice;
+import assegnamento2.assegnamento2.communication.product.BakeryShop;
+import assegnamento2.assegnamento2.communication.product.BakeryShop;
 import assegnamento2.assegnamento2.communication.user.Client;
 import assegnamento2.assegnamento2.communication.user.Employee;
 import javafx.collections.FXCollections;
@@ -169,7 +170,7 @@ public class Controller {
         writer.close();
     }
 
-    public void refreshList(List<ElettronicDevice> list, String src) throws XMLStreamException, FileNotFoundException {
+    public void refreshList(List<BakeryShop> list, String src) throws XMLStreamException, FileNotFoundException {
 
         XMLOutputFactory output = XMLOutputFactory.newInstance();
         XMLStreamWriter writer = output.createXMLStreamWriter(new FileOutputStream(src));
@@ -177,7 +178,7 @@ public class Controller {
         writer.writeStartDocument("1.0");
         writer.writeStartElement("database");
 
-        for (ElettronicDevice e : list) {
+        for (BakeryShop e : list) {
 
             writer.writeStartElement("elDev");
 
@@ -209,7 +210,7 @@ public class Controller {
         writer.writeCharacters(element);
         writer.writeEndElement();
     }
-    public void readElDev(List<ElettronicDevice> list, String src) throws ParserConfigurationException, SAXException, IOException {
+    public void readElDev(List<BakeryShop> list, String src) throws ParserConfigurationException, SAXException, IOException {
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -230,7 +231,7 @@ public class Controller {
                 String price = elem.getElementsByTagName("price").item(0).getChildNodes().item(0).getNodeValue();
                 String amount = elem.getElementsByTagName("amount").item(0).getChildNodes().item(0).getNodeValue();
 
-                list.add(new ElettronicDevice(name, Integer.parseInt(id), producer, Float.parseFloat(price), Integer.parseInt(amount)));
+                list.add(new BakeryShop(name, Integer.parseInt(id), producer, Float.parseFloat(price), Integer.parseInt(amount)));
             }
         }
     }
