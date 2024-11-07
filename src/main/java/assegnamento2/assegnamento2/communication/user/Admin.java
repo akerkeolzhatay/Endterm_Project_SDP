@@ -1,6 +1,7 @@
 package assegnamento2.assegnamento2.communication.user;
 
-import assegnamento2.assegnamento2.communication.product.ElettronicDevice;
+import assegnamento2.assegnamento2.communication.product.BakeryShop;
+import assegnamento2.assegnamento2.communication.product.BakeryShop;
 
 import java.util.List;
 
@@ -37,17 +38,17 @@ public final class Admin extends Employee {
 
         return true;
     }
-    public int addProduct(final List<ElettronicDevice> list, String name, int id, String producer, float price, int amount) {
+    public int addProduct(final List<BakeryShop> list, String name, int id, String producer, float price, int amount) {
         if (amount <= 0) return 1;
         if (price <= 0) return 2;
-        for (ElettronicDevice i : list) {
+        for (BakeryShop i : list) {
             if (i.getId() == id) return 3;
         }
-        list.add(new ElettronicDevice(name, id, producer, price, amount));
+        list.add(new BakeryShop(name, id, producer, price, amount));
         return 0;
     }
-    public int rmvProduct(final List<ElettronicDevice> list, int id) {
-        for (ElettronicDevice e : list) {
+    public int rmvProduct(final List<BakeryShop> list, int id) {
+        for (BakeryShop e : list) {
             if (e.getId() == id) {
                 list.remove(e);
                 return 0;

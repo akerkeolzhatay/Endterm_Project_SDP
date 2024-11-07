@@ -1,13 +1,13 @@
 package assegnamento2.assegnamento2.communication.product;
 
-public class ElettronicDevice {
+public class BakeryShop {
 
     private String name;
     private int id;
     private String producer;
     private float price;
     private int amount;
-    public ElettronicDevice(final String name, final int id, final String producer, final float price, final int amount) {
+    public BakeryShop(final String name, final int id, final String producer, final float price, final int amount) {
 
         this.setName(name);
         this.setId(id);
@@ -16,8 +16,8 @@ public class ElettronicDevice {
         this.setAmount(amount);
     }
 
-    public ElettronicDevice() { }
-    public ElettronicDevice(ElettronicDevice i) {
+    public BakeryShop() { }
+    public BakeryShop(BakeryShop i) {
 
         this.name = i.getName();
         this.id = i.getId();

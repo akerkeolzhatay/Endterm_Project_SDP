@@ -1,5 +1,6 @@
 package assegnamento2.assegnamento2.communication.user;
 
+import assegnamento2.assegnamento2.communication.product.BakeryShop;
 import assegnamento2.assegnamento2.communication.product.ElettronicDevice;
 
 import java.io.IOException;
@@ -36,9 +37,9 @@ public final class Client extends Person {
 
         this.address = address;
     }
-    public Object searchProduct(final List<ElettronicDevice> list, String name, String producer, String min, String max) throws IOException {
+    public Object searchProduct(final List<BakeryShop> list, String name, String producer, String min, String max) throws IOException {
         float minPrice = 0, maxPrice = 0;
-        List<ElettronicDevice> elprint = new ArrayList<>();
+        List<BakeryShop> elprint = new ArrayList<>();
         if (min.equals("")) minPrice = 0;
         else {
             try {
