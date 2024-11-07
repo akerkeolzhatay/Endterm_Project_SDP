@@ -78,6 +78,7 @@
                                         </TableColumn>
                                     </columns>
 
+
                                 </TableView>
                                 <!-- Buy button -->
                                 <Button fx:id="buyButton" layoutX="540.0" layoutY="147.0" mnemonicParsing="false" onAction="#handleBuy" prefHeight="28.0" prefWidth="99.0" style="-fx-background-color: #c58e8c;" text="Buy" textFill="WHITE">
