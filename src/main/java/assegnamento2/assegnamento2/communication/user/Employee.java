@@ -1,7 +1,7 @@
 package assegnamento2.assegnamento2.communication.user;
 
 import assegnamento2.assegnamento2.communication.product.BakeryShop;
-import assegnamento2.assegnamento2.communication.product.ElettronicDevice;
+import assegnamento2.assegnamento2.communication.product.BakeryShop;
 
 import java.util.List;
 public class Employee extends Person {
