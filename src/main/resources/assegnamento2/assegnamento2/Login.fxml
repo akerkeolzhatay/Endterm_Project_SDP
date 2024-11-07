@@ -13,22 +13,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<!-- Main container for the login screen -->
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assegnamento2.assegnamento2.controller.LoginController">
    <children>
+      <!-- Background image and secondary container for login form -->
       <AnchorPane fx:id="ap" maxHeight="467.0" maxWidth="743.0" minHeight="452.0" minWidth="684.0" prefHeight="452.0" prefWidth="684.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <!-- Main background image for the login screen -->
             <ImageView fitHeight="477.0" fitWidth="685.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Pics/copertina.jpg" />
                </image>
             </ImageView>
+            <!-- Container for the login form and overlay effect -->
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="458.0" prefWidth="394.0">
                <children>
+                  <!-- Semi-transparent overlay to highlight the form -->
                   <ImageView fitHeight="466.0" fitWidth="393.0" layoutY="-1.0" opacity="0.41" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Pics/nero.jpg" />
                      </image>
                   </ImageView>
+                  <!-- Username input field -->
                   <TextField fx:id="userName" layoutX="97.0" layoutY="130.0" prefHeight="25.0" prefWidth="176.0" promptText="Username">
                      <opaqueInsets>
                         <Insets />
@@ -37,11 +43,13 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
+                  <!-- Password input field -->
                   <PasswordField fx:id="pass" layoutX="97.0" layoutY="199.0" onAction="#onEnter" prefHeight="26.0" prefWidth="176.0" promptText="Password">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </PasswordField>
+                  <!-- Login button with shadow effect -->
                   <Button layoutX="86.0" layoutY="285.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="39.0" prefWidth="198.0" style="-fx-background-color: #c58e8c; -fx-border-color: #1b3f77;" text="Log In" textFill="WHITE">
                      <effect>
                         <DropShadow />
@@ -50,6 +58,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
+                  <!-- Main label for the store name -->
                   <Label fx:id="loginLabel" layoutX="39.0" layoutY="27.0" prefHeight="72.0" prefWidth="318.0" text="Bakery Store " textAlignment="CENTER" textFill="#e6d5e5">
                      <font>
                         <Font name="Vivaldi Italic" size="44.0" />
@@ -63,6 +72,7 @@
                   <Insets />
                </opaqueInsets>
             </AnchorPane>
+            <!-- Button for registering a new account -->
             <Button fx:id="register" layoutX="473.0" layoutY="210.0" mnemonicParsing="false" onAction="#onRegister" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #c58e8c;" text="Register Now" textFill="white">
                <effect>
                   <DropShadow />
@@ -71,12 +81,15 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
+            <!-- Label asking if the user is not a member yet -->
             <Label fx:id="registerLabel" layoutX="445.0" layoutY="155.0" text="Not a member yet ?" textFill="black">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
+            <!-- Hyperlink for contacting support -->
             <Hyperlink layoutX="14.0" layoutY="420.0" onAction="#handleContactUsLink" text="Contact Us" textFill="WHITE" />
+            <!-- Copyright notice -->
             <Label layoutX="549.0" layoutY="423.0" mnemonicParsing="true" text="Akerke^2Production ©" textFill="black" />
          </children>
       </AnchorPane>

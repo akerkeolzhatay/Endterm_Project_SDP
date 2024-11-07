@@ -8,28 +8,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<!-- Main container for the registration page -->
 <AnchorPane prefHeight="393.0" prefWidth="694.0" style="-fx-background-color: #e6d5e5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assegnamento2.assegnamento2.controller.RegisterController">
     <children>
+        <!-- Label displaying the title 'Registration' -->
         <Label contentDisplay="CENTER" layoutX="257.0" layoutY="11.0" prefHeight="62.0" prefWidth="181.0" text="Registration" textFill="#2e6265" wrapText="true">
             <font>
                 <Font name="Couture-Bold" size="32.0" />
             </font>
         </Label>
-
+        <!-- Hyperlink for navigating to the login page -->
         <Hyperlink layoutX="619.0" layoutY="14.0" onAction="#handleHomeButton" text="Login" textFill="#2e6265">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Hyperlink>
+        <!-- TextField for entering the name, surname, address, username, password -->
         <TextField fx:id="newName" alignment="TOP_CENTER" layoutX="239.0" layoutY="97.0" prefHeight="25.0" prefWidth="215.0" promptText="Name" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="239.0" AnchorPane.topAnchor="97.0" />
         <TextField fx:id="newSurname" alignment="TOP_CENTER" layoutX="239.0" layoutY="129.0" prefHeight="25.0" prefWidth="215.0" promptText="Surname" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="239.0" AnchorPane.topAnchor="127.6" />
         <TextField fx:id="newAddress" alignment="TOP_CENTER" layoutX="238.0" layoutY="164.0" prefHeight="25.0" prefWidth="215.0" promptText="Address" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="239.0" AnchorPane.topAnchor="158.2" />
         <TextField fx:id="newUsername" alignment="TOP_CENTER" layoutX="238.0" layoutY="197.0" prefHeight="25.0" prefWidth="215.0" promptText="Username" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="239.0" AnchorPane.topAnchor="188.8" />
         <TextField fx:id="newPass" alignment="TOP_CENTER" layoutX="238.0" layoutY="229.0" prefHeight="25.0" prefWidth="214.0" promptText="Password" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="239.0" AnchorPane.topAnchor="219.4" />
+        <!-- Button for submitting the registration form -->
         <Button fx:id="signIn" contentDisplay="RIGHT" layoutX="319.0" layoutY="288.0" mnemonicParsing="false" onAction="#handleSignIn" style="-fx-background-color: #c58e8c;" text="Sign in" textFill="WHITE" AnchorPane.topAnchor="265.0">
             <font>
                 <Font size="14.0" />
             </font>
+            <!-- Adding a shadow effect to the button -->
             <effect>
                 <DropShadow />
             </effect>
