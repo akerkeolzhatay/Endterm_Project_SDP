@@ -12,35 +12,37 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
+<!-- Root AnchorPane that holds all elements -->
 <AnchorPane prefHeight="393.0" prefWidth="694.0" style="-fx-background-color: #e6d5e5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assegnamento2.assegnamento2.controller.EmployeeController">
 	<children>
-
+		<!-- Main Dashboard title Label -->
 		<Label layoutX="14.0" layoutY="9.0" prefHeight="62.0" prefWidth="166.0" text="Dashboard" textFill="#2e6265">
 			<font>
 				<Font name="Couture-Bold" size="32.0" />
 			</font>
 		</Label>
-
+		<!-- Employee username label -->
 		<Label fx:id="usernameLabel" layoutX="172.0" layoutY="16.0" prefHeight="47.0" prefWidth="146.0" text="Employee" textFill="#2e6265">
 			<font>
 				<Font size="32.0" />
 			</font>
 		</Label>
-
+		<!-- TabPane with multiple tabs -->
 		<TabPane fx:id="employeeTabPane" layoutY="81.0" prefHeight="350.0" prefWidth="693.0" style="-fx-background-color: #bfdce8;" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
 
 				<Tab fx:id="deliveryTabE" text="Confirm order">
 					<content>
+						<!-- Tab for confirming orders -->
 						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 							<children>
-
+								<!-- TableView for displaying orders -->
 								<TableView fx:id="deliveryTableView" layoutX="170.0" layoutY="10.0" prefHeight="247.0" prefWidth="510.0">
 									<placeholder>
 										<Label text="NO ORDER" />
 									</placeholder>
 									<columns>
+										<!-- Table columns for order details -->
 										<TableColumn fx:id="ordElettronicE" prefWidth="127.20002746582031" text="Name">
 											<cellValueFactory>
 												<PropertyValueFactory property="name" />
@@ -68,12 +70,13 @@
 										</TableColumn>
 									</columns>
 								</TableView>
-
+								<!-- Button to send all confirmed orders -->
 								<Button fx:id="deliverySendAllE" layoutX="541.0" layoutY="269.0" mnemonicParsing="false" onAction="#handleSendAll" prefHeight="25.0" prefWidth="138.0" style="-fx-background-color: #c58e8c;" text="Send All" textFill="WHITE">
 									<font>
 										<Font name="System Bold" size="12.0" />
 									</font>
 								</Button>
+								<!-- ComboBox for selecting a client -->
 								<ComboBox fx:id="choiceClient" layoutX="14.0" layoutY="10.0" onAction="#handleChoiceClient" prefWidth="150.0" promptText="choice client" visibleRowCount="9" />
 
 							</children>
@@ -81,12 +84,12 @@
 						</AnchorPane>
 					</content>
 				</Tab>
-
+				<!-- Tab for finished products -->
 				<Tab fx:id="buyFinishedTabE" closable="false" onSelectionChanged="#handleViewBuyElDev" text="Buy finished product">
 					<content>
 						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="320.0" prefWidth="680.0">
 							<children>
-
+								<!-- TableView for displaying finished products -->
 								<TableView fx:id="buyFinishedTableView" layoutX="14.0" layoutY="10.0" prefHeight="263.0" prefWidth="670.0">
 
 									<columns>
@@ -123,14 +126,15 @@
 						</AnchorPane>
 					</content>
 				</Tab>
-
+				<!-- Tab for updating product details -->
 				<Tab fx:id="updateTab" closable="false" text="Update">
 					<content>
 						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="320.0" prefWidth="680.0">
 							<children>
-
+								<!-- TableView for updating product details -->
 								<TableView fx:id="updateTableView" layoutX="14.0" layoutY="10.0" prefHeight="266.0" prefWidth="502.0">
 									<columns>
+										<!-- Table columns for update information -->
 										<TableColumn fx:id="uName" prefWidth="100.0" text="Name">
 											<cellValueFactory>
 												<PropertyValueFactory property="name" />
@@ -158,7 +162,7 @@
 										</TableColumn>
 									</columns>
 								</TableView>
-
+								<!-- Button to update product details -->
 								<Button fx:id="uploadButtonE" layoutX="556.0" layoutY="248.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="28.0" prefWidth="99.0" style="-fx-background-color: #c58e8c;" text="Update" textFill="WHITE">
 									<font>
 										<Font name="System Bold" size="12.0" />
