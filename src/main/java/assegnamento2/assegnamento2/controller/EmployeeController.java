@@ -223,5 +223,4 @@ public class EmployeeController extends Controller implements Initializable {
             case 3 -> popUp(Alert.AlertType.INFORMATION, "ID not found", "Product ID not present!");
         }
     }
-
 }
