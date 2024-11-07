@@ -1,7 +1,6 @@
 package assegnamento2.assegnamento2.controller;
 
 import assegnamento2.assegnamento2.communication.product.BakeryShop;
-import assegnamento2.assegnamento2.communication.product.BakeryShop;
 import assegnamento2.assegnamento2.communication.user.Client;
 import assegnamento2.assegnamento2.communication.user.Employee;
 import javafx.fxml.FXML;
