@@ -7,8 +7,9 @@ public class BakeryShop {
     private String producer;
     private float price;
     private int amount;
-    public BakeryShop(final String name, final int id, final String producer, final float price, final int amount) {
 
+    // Parameterized constructor for initialization
+    public BakeryShop(final String name, final int id, final String producer, final float price, final int amount) {
         this.setName(name);
         this.setId(id);
         this.setProducer(producer);
@@ -16,18 +17,23 @@ public class BakeryShop {
         this.setAmount(amount);
     }
 
+    // Default constructor
     public BakeryShop() { }
-    public BakeryShop(BakeryShop i) {
 
+    // Copy constructor
+    public BakeryShop(BakeryShop i) {
         this.name = i.getName();
         this.id = i.getId();
         this.producer = i.getProducer();
         this.price = i.getPrice();
         this.amount = i.getAmount();
     }
+
+    // Getters
     public String getName() {
         return this.name;
     }
+
     public int getId() {
         return this.id;
     }
@@ -35,6 +41,7 @@ public class BakeryShop {
     public String getProducer() {
         return this.producer;
     }
+
     public float getPrice() {
         return this.price;
     }
@@ -43,6 +50,7 @@ public class BakeryShop {
         return this.amount;
     }
 
+    // Setters
     public void setName(final String name) {
         this.name = name;
     }
@@ -62,5 +70,4 @@ public class BakeryShop {
     public void setAmount(final int amount) {
         this.amount = amount;
     }
-
 }

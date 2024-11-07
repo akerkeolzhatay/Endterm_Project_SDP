@@ -22,6 +22,8 @@ public final class RegisterController extends Controller {
     private TextField newUsername;
     @FXML
     private TextField newPass;
+
+    // Handles the sign-in/registration process
     @FXML
     public void handleSignIn(ActionEvent event) throws ParserConfigurationException, IOException, SAXException, XMLStreamException {
 
@@ -31,20 +33,23 @@ public final class RegisterController extends Controller {
         String username = this.newUsername.getText();
         String pass = this.newPass.getText();
 
+        // Check if any field is blank
         if (name.isBlank() || surname.isBlank() || address.isBlank() || pass.isBlank() || username.isBlank())
             popUp(Alert.AlertType.ERROR, "Blank fields!", "Registered failed");
 
         else {
+            // Check if the username already exists
             Boolean value = loginR(username);
 
             if (value)
                 popUp(Alert.AlertType.ERROR, "Error Username!", "Username exist");
 
             else {
+                // Add the new client user to the system
                 addUser(new Client(name, surname, username, pass, address));
 
                 popUp(Alert.AlertType.INFORMATION, "Registered!", "Client registered");
-                handleHomeButton(event);
+                handleHomeButton(event); // Redirect to the home screen
             }
         }
     }

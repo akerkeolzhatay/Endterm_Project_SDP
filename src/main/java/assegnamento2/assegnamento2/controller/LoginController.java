@@ -24,9 +24,9 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * The class {@code LoginController} represent
- * the controller where we can control all the buttons and functionality of the Login fxml file.
- * This class inherit from Controller class.
+ * The class {@code LoginController} represents
+ * the controller where we control all the buttons and functionality of the Login fxml file.
+ * This class inherits from Controller class.
  */
 public class LoginController extends Controller {
 
@@ -34,23 +34,26 @@ public class LoginController extends Controller {
     private TextField userName;
     @FXML
     private TextField pass;
+    // Displays contact information in a pop-up
     @FXML
     public void handleContactUsLink() {
 
         popUp(Alert.AlertType.INFORMATION, "Name - Akerke Sugirbek\nNumber - 8-777-256-454\nName - Akerke Olzhatay\nNumber - 8-771-098-567", "Contact Us");
     }
-
+    // Triggers login when the Enter key is pressed
     @FXML
     public void onEnter(ActionEvent event) throws IOException, ParserConfigurationException, SAXException {
 
         handleLoginButton(event);
     }
+    // Checks login credentials from XML and returns the corresponding user object
     public Object login(String userName, String pass) throws ParserConfigurationException, SAXException, IOException {
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.parse(new File("src/main/java/assegnamento2/assegnamento2/db/DB.XML"));
 
+        // Check if the user is an admin
         NodeList nodeList = document.getElementsByTagName("administrator");
 
         for (int i = 0; i < nodeList.getLength(); i++) {
@@ -72,6 +75,7 @@ public class LoginController extends Controller {
             }
         }
 
+        // Check if the user is an employee
         NodeList nodeList1 = document.getElementsByTagName("employee");
 
         for (int i = 0; i < nodeList1.getLength(); i++) {
@@ -93,6 +97,7 @@ public class LoginController extends Controller {
             }
         }
 
+        // Check if the user is a client
         NodeList nodeList2 = document.getElementsByTagName("client");
 
         for (int i = 0; i < nodeList2.getLength(); i++) {
@@ -119,6 +124,7 @@ public class LoginController extends Controller {
         popUp(Alert.AlertType.WARNING, "TRY AGAIN", "Username or password is incorrect!");
         return null;
     }
+    // Handles login button action, authenticates user, and changes scene based on user type
     @FXML
     public void handleLoginButton(ActionEvent event) throws ParserConfigurationException, IOException, SAXException {
 
@@ -137,11 +143,13 @@ public class LoginController extends Controller {
             else if (res instanceof Client) changeScene(event, "Client.fxml", "Client", res);
         }
     }
+    // Redirects to the registration page
     @FXML
     public void onRegister(ActionEvent event) throws IOException {
 
         changeScene(event, "Register.fxml", "Registration");
     }
+    // Changes the scene based on the user type
     @FXML
     public void changeScene(final ActionEvent event, final String fxml, final String title, Object res) throws IOException, ParserConfigurationException, SAXException {
 

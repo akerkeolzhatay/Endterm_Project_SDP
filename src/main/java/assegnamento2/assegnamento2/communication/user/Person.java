@@ -7,15 +7,18 @@ public class Person {
     private String username;
     private String password;
 
+    // Constructor with parameters
     public Person(final String name, final String surname, final String username, final String password) {
-
         this.setName(name);
         this.setSurname(surname);
         this.setUsername(username);
         this.setPassword(password);
     }
 
+    // Default constructor
     public Person() { }
+
+    // Getters
     public String getName() {
         return this.name;
     }
@@ -32,6 +35,7 @@ public class Person {
         return this.password;
     }
 
+    // Setters
     public void setName(final String name) {
         this.name = name;
     }
@@ -39,6 +43,7 @@ public class Person {
     public void setSurname(final String surname) {
         this.surname = surname;
     }
+
     public void setUsername(final String username) {
         this.username = username;
     }
@@ -46,5 +51,4 @@ public class Person {
     public void setPassword(final String password) {
         this.password = password;
     }
-
 }

@@ -30,6 +30,7 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+// Controller class for handling employee-related tasks in the bakery application
 public class EmployeeController extends Controller implements Initializable {
     @FXML
     protected TableView deliveryTableView;
@@ -62,7 +63,7 @@ public class EmployeeController extends Controller implements Initializable {
     List<Client> clientList = new ArrayList<>();
 
     private Employee employee = new Employee();
-
+    // Initialize method to load data and populate UI elements
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -75,15 +76,18 @@ public class EmployeeController extends Controller implements Initializable {
         }
         printListFX(updateTableView, Stream.concat(prodElDev.stream(), buyElDev.stream()).collect(Collectors.toList()));
     }
+    // Sets the employee data to be used in the controller
     public void setEmployee(Employee emp) {
 
         this.employee = new Employee(emp);
     }
+    // Display finished purchases in buyFinishedTableView
     @FXML
     public void handleViewBuyElDev() {
 
         printListFX(buyFinishedTableView, buyElDev);
     }
+    // Populate deliveryTableView based on selected client in choiceClient ComboBox
     @FXML
     public void handleChoiceClient() {
         for (Client cli : this.clientList) {
@@ -93,7 +97,7 @@ public class EmployeeController extends Controller implements Initializable {
             }
         }
     }
-
+    // Reads orders from the database XML file and populates clientList with Client objects
     public void readOrder() throws ParserConfigurationException, IOException, SAXException {
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -135,6 +139,7 @@ public class EmployeeController extends Controller implements Initializable {
             this.clientList.add(client);
         }
     }
+    // Reads usernames from clientList and populates choiceClient ComboBox
     @FXML
     public void readUsername() throws ParserConfigurationException, IOException, SAXException {
 
@@ -145,7 +150,7 @@ public class EmployeeController extends Controller implements Initializable {
 
         }
     }
-
+    // Handles the action of sending all deliveries for a selected client
     public void handleSendAll() throws ParserConfigurationException, IOException, SAXException, XMLStreamException {
 
         this.clientList.removeIf(cli -> cli.getUsername().equals(choiceClient.getValue()));
@@ -156,6 +161,7 @@ public class EmployeeController extends Controller implements Initializable {
         deliveryTableView.getItems().clear();
         writeOrder();
     }
+    // Writes client orders to the XML database file
     public void writeOrder() throws XMLStreamException, IOException {
 
         XMLOutputFactory output = XMLOutputFactory.newInstance();
@@ -191,6 +197,7 @@ public class EmployeeController extends Controller implements Initializable {
         writer.flush();
         writer.close();
     }
+    // Updates product data in the XML database when the upload button is clicked
     @FXML
     public void handleUpdate() throws XMLStreamException, FileNotFoundException {
 
@@ -199,6 +206,7 @@ public class EmployeeController extends Controller implements Initializable {
         this.IDproductE.clear();
         this.amountE.clear();
     }
+    // Handles the results of the update operation and refreshes the product list as necessary
     @FXML
     public void updateSwitch(int result) throws XMLStreamException, FileNotFoundException {
 
